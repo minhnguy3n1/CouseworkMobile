@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.coursework" >
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Coursework"
+        tools:targetApi="31" >
+        <activity
+            android:name=".UploadActivity"
+            android:label="Upload Trip"
+            android:exported="false" />
+        <activity
+            android:name=".SearchActivity"
+            android:label="Search Trip"
+            android:exported="false" />
+        <activity
+            android:name=".AddExpenseActivity"
+            android:exported="false"
+            android:label="Add Expense"
+            android:parentActivityName=".ExpenseDetailActivity" />
+        <activity
+            android:name=".ExpenseDetailActivity"
+            android:exported="false"
+            android:label="Expense Detail"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UpdateActivity"
+            android:exported="false"
+            android:label="Edit Trip"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddActivity"
+            android:exported="false"
+            android:label="Add Trip"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="All Trips" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

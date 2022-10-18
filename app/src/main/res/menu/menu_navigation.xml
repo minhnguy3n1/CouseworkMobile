@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/list_trips"
+        android:title="All Trips"
+        android:icon="@drawable/ic_list"
+        />
+    <item
+        android:id="@+id/search"
+        android:title="Search"
+        android:icon="@drawable/ic_search"
+        />
+    <item
+        android:id="@+id/upload"
+        android:title="Upload"
+        android:icon="@drawable/ic_cloud_upload"
+        />
+
+</menu>
