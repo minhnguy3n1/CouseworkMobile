@@ -52,8 +52,19 @@ public class AddExpenseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                DialogFragment newFragment = new ExpenseDatePickerFragment();
-                newFragment.show(getSupportFragmentManager(),"datePicker");
+                LocalDate localDate = LocalDate.now();
+                int year = localDate.getYear();
+                int month = localDate.getMonthValue();
+                int day = localDate.getDayOfMonth();
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(AddExpenseActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                                expense_date.setText(day + "-" + (month++) + "-" + year);
+                            }
+                        }, year, month, day);
+                datePickerDialog.show();
             }
         });
 

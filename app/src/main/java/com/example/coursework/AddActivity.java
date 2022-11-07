@@ -39,8 +39,19 @@ public class AddActivity extends AppCompatActivity {
         date_input.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogFragment newFragment = new DatePickerFragment();
-                newFragment.show(getSupportFragmentManager(),"datePicker");
+                LocalDate localDate = LocalDate.now();
+                int year = localDate.getYear();
+                int month = localDate.getMonthValue();
+                int day = localDate.getDayOfMonth();
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(AddActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                                date_input.setText(day + "-" + (month++) + "-" + year);
+                            }
+                        }, year, month, day);
+                datePickerDialog.show();
             }
         });
 
