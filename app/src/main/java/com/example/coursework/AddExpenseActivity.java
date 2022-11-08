@@ -81,7 +81,10 @@ public class AddExpenseActivity extends AppCompatActivity {
                     Toast.makeText(AddExpenseActivity.this,"You need to fill all required fields", Toast.LENGTH_SHORT).show();
                 } else if(value_amount.isEmpty()){
                     Toast.makeText(AddExpenseActivity.this,"You need to fill all required fields", Toast.LENGTH_SHORT).show();
-                } else if(value_date.isEmpty()){
+                } else if (value_amount.contains("-")){
+                    Toast.makeText(AddExpenseActivity.this,"Amount must be positive number", Toast.LENGTH_SHORT).show();
+                }
+                else if(value_date.isEmpty()){
                     Toast.makeText(AddExpenseActivity.this,"You need to fill all required fields", Toast.LENGTH_SHORT).show();
                 }
                 else {

@@ -104,10 +104,18 @@ public class UpdateActivity extends AppCompatActivity {
                     date = date_input.getText().toString().trim();
                     assessment = radioButton.getText().toString().trim();
                     desc = desc_input.getText().toString().trim();
-
-                    myDB.updateData(id, name, destination, date, assessment, desc);
-                    Intent intent = new Intent(UpdateActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    if(name.isEmpty()){
+                        isNullAlert();
+                    } else if(destination.isEmpty()){
+                        isNullAlert();
+                    } else if(date.isEmpty()){
+                        isNullAlert();
+                    }
+                    else {
+                        myDB.updateData(id, name, destination, date, assessment, desc);
+                        Intent intent = new Intent(UpdateActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
 
                 }
 
@@ -120,11 +128,8 @@ public class UpdateActivity extends AppCompatActivity {
                 Intent intent = new Intent(UpdateActivity.this, ExpenseDetailActivity.class);
                 intent.putExtra("trip_id",id);
                 startActivity(intent);
-
             }
         });
-
-
     }
 
     void getAndSetIntentData(){
@@ -200,6 +205,17 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
         builder.create().show();
+    }
+
+    private void isNullAlert(){
+        new AlertDialog.Builder(this).setMessage(
+                "You need to fill all required fields"
+        ).setNeutralButton("Close", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        }).show();
     }
 
 }

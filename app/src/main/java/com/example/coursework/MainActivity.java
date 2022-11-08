@@ -53,26 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         bottomNavigationView.setSelectedItemId(R.id.list_trips);
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch (item.getItemId()) {
-//                    case R.id.list_trips:
-//                        return true;
-//                    case R.id.search:
-//                        startActivity(new Intent(getApplicationContext(), SearchActivity.class));
-//                        overridePendingTransition(0,0);
-//                        return true;
-//                    case R.id.upload:
-//                        startActivity(new Intent(getApplicationContext(), UploadActivity.class));
-//                        overridePendingTransition(0,0);
-//                        return true;
 //
-//                }
-//
-//                return false;
-//            }
-//        });
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
