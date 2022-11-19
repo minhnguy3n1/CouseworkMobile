@@ -10,14 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class MyCustomAdapter extends RecyclerView.Adapter<MyCustomAdapter.MyViewHolder>
+public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHolder>
 {
 
     private Context context;
     private ArrayList<TripInfo> tripInfos;
-    public MyCustomAdapter(ArrayList<TripInfo> tripInfos, Context context){
+    public SearchAdapter(ArrayList<TripInfo> tripInfos, Context context){
         this.tripInfos = tripInfos;
         this.context = context;
     }

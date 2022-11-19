@@ -1,28 +1,23 @@
 package com.example.coursework;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.SearchView;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -31,7 +26,7 @@ public class SearchActivity extends AppCompatActivity {
     SearchView searchView;
 
     MyDatabaseHelper myDB;
-    MyCustomAdapter myCustomAdapter;
+    SearchAdapter searchAdapter;
     ArrayList<TripInfo> tripInfos;
 
     @Override
@@ -80,10 +75,10 @@ public class SearchActivity extends AppCompatActivity {
         tripInfos = new ArrayList<TripInfo>();
         myDB = new MyDatabaseHelper(SearchActivity.this);
         tripInfos = myDB.findAll();
-        myCustomAdapter = new MyCustomAdapter(tripInfos, getApplicationContext());
+        searchAdapter = new SearchAdapter(tripInfos, getApplicationContext());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
-        recyclerView.setAdapter(myCustomAdapter);
+        recyclerView.setAdapter(searchAdapter);
 
     }
 
@@ -122,7 +117,7 @@ public class SearchActivity extends AppCompatActivity {
         if(filteredList.isEmpty()){
             Toast.makeText(this,"No Data", Toast.LENGTH_SHORT).show();
         } else {
-            myCustomAdapter.filterList(filteredList);
+            searchAdapter.filterList(filteredList);
         }
     }
 
