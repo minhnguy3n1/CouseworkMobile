@@ -92,23 +92,16 @@ public class AddActivity extends AppCompatActivity {
                             value_date,
                             radioButton.getText().toString().trim(),
                             value_desc);
-
                 }
-
             }
         });
 
     }
 
-
-    public void updateDate(LocalDate date){
-        date_input.setText(date.toString());
-    }
-
     private void displayNextAlert(String strName, String strDestination, String strDate,
                                   String strAssesment, String strDesc){
 
-            new AlertDialog.Builder(this).setTitle("Details entered").setMessage("Details entered: " +
+            new AlertDialog.Builder(this).setTitle("Details entered").setMessage(
                     "Name of the Trip: " + strName + "\n" +
                     "Destination: " + strDestination +"\n" +
                     "Date of the Trip: " + strDate +"\n" +
@@ -122,9 +115,6 @@ public class AddActivity extends AppCompatActivity {
                     finish();
                 }
             }).show();
-
-
-
     }
 
     private void isNullAlert(){

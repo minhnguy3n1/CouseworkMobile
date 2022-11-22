@@ -25,7 +25,7 @@
             android:name=".AddExpenseActivity"
             android:exported="false"
             android:label="Add Expense"
-            android:parentActivityName=".ExpenseDetailActivity" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ExpenseDetailActivity"
             android:exported="false"

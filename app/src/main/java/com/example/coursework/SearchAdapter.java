@@ -45,10 +45,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
         holder.trip_destination_txt.setText(tripInfo.getDestination());
         holder.trip_date_txt.setText(tripInfo.getDate());
         holder.trip_assessment_txt.setText(tripInfo.getAssessment());
-
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -66,9 +63,6 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.MyViewHold
             trip_destination_txt = itemView.findViewById(R.id.trip_destination_txt);
             trip_date_txt = itemView.findViewById(R.id.trip_date_txt);
             trip_assessment_txt = itemView.findViewById(R.id.trip_assessment_txt);
-
-
-
         }
     }
 }

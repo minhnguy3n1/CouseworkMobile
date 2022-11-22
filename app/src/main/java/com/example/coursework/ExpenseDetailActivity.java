@@ -43,7 +43,6 @@ public class ExpenseDetailActivity extends AppCompatActivity {
                 Intent intent = new Intent(ExpenseDetailActivity.this, AddExpenseActivity.class);
                 intent.putExtra("trip_id", trip_id);
                 startActivity(intent);
-
             }
         });
 
@@ -61,8 +60,6 @@ public class ExpenseDetailActivity extends AppCompatActivity {
                 , expense_date);
         recyclerView.setAdapter(expenseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ExpenseDetailActivity.this));
-
-
     }
 
     void storeDataInArrays(){
@@ -81,6 +78,5 @@ public class ExpenseDetailActivity extends AppCompatActivity {
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);
         }
-
     }
 }

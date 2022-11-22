@@ -97,12 +97,5 @@ public class AddExpenseActivity extends AppCompatActivity {
             }
         });
     }
-    public void updateDate(LocalDate date){
-        expense_date.setText(date.toString());
-    }
-
-
-
-
 }
 

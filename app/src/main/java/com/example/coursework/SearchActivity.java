@@ -35,7 +35,6 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         recyclerView = findViewById(R.id.recyclerView);
-//        initView();
         loadData();
 
 
@@ -55,23 +54,13 @@ public class SearchActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), UploadActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
-
                 }
-
                 return false;
             }
         });
-
-
-
-    }
-
-    private void initView(){
-        registerForContextMenu(recyclerView);
     }
 
     private void loadData(){
-
         tripInfos = new ArrayList<TripInfo>();
         myDB = new MyDatabaseHelper(SearchActivity.this);
         tripInfos = myDB.findAll();
@@ -79,10 +68,8 @@ public class SearchActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
         recyclerView.setAdapter(searchAdapter);
-
     }
 
-//
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -105,7 +92,6 @@ public class SearchActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
     private void filter (String text){
         ArrayList<TripInfo> filteredList = new ArrayList<TripInfo>();
         for(TripInfo item : tripInfos){
@@ -120,17 +106,4 @@ public class SearchActivity extends AppCompatActivity {
             searchAdapter.filterList(filteredList);
         }
     }
-
-
-
-
-//    private void searchTrip(String keyword){
-//        myDB = new MyDatabaseHelper(getApplicationContext());
-//        ArrayList<TripInfo> tripInfos = myDB.search(keyword);
-//        if(tripInfos != null){
-//            recyclerView.setAdapter(new MyCustomAdapter(tripInfos, SearchActivity.this));
-//            recyclerView.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
-//        }
-//    }
-
 }

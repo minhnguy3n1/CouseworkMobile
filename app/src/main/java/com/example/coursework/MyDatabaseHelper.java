@@ -56,9 +56,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 EXPENSE_DATE + " TEXT, " +
                 EXPENSE_TRIP_ID+ " INTEGER, " +
                 "FOREIGN KEY ("+ EXPENSE_TRIP_ID + ") REFERENCES "+TABLE_NAME+"("+COLUMN_ID+"));";
-
-
-
         db.execSQL(query);
         db.execSQL(query1);
     }
@@ -190,30 +187,4 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
         return tripInfos;
     }
-
-    ArrayList<TripInfo> search(String keyword){
-        ArrayList<TripInfo> tripInfos = null;
-        try {
-            SQLiteDatabase db= getReadableDatabase();
-            Cursor cursor = db.rawQuery("SELECT * FROM "+ TABLE_NAME + " WHERE " + COLUMN_NAME + " LIKE ?"
-                    , new String[]{"%" + keyword + "%"});
-            if (cursor.moveToFirst()){
-                tripInfos = new ArrayList<TripInfo>();
-                do{
-                    TripInfo tripInfo = new TripInfo();
-                    tripInfo.setId(cursor.getInt(0));
-                    tripInfo.setName(cursor.getString(1));
-                    tripInfo.setDestination(cursor.getString(2));
-                    tripInfo.setDate(cursor.getString(3));
-                    tripInfo.setAssessment(cursor.getString(4));
-                    tripInfos.add(tripInfo);
-                } while (cursor.moveToNext());
-            }
-        } catch (Exception e){
-            tripInfos = null;
-        }
-        return tripInfos;
-    }
-
-
 }

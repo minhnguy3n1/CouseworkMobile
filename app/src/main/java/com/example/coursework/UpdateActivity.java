@@ -39,7 +39,6 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-
         name_input = findViewById(R.id.name_update_input);
         destination_input = findViewById(R.id.destination_update_input);
         date_input = findViewById(R.id.date_update_input);
@@ -49,10 +48,7 @@ public class UpdateActivity extends AppCompatActivity {
         yes_button = findViewById(R.id.radioButton_yes);
         no_button = findViewById(R.id.radioButton_no);
 
-
         getAndSetIntentData();
-
-
 
         date_input.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,16 +69,12 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
 
-
-
         assessment_input.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId)
             {
-
                 radioButton = (RadioButton) findViewById(checkedId);
-
             }
         });
 
@@ -116,9 +108,7 @@ public class UpdateActivity extends AppCompatActivity {
                         Intent intent = new Intent(UpdateActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
-
                 }
-
             }
         });
 
@@ -155,19 +145,13 @@ public class UpdateActivity extends AppCompatActivity {
             } else {
                 yes_button.setChecked(false);
                 no_button.setChecked(true);
-
             }
-
-
             Log.d("stev", name+" "+destination+" "+date+" "+desc);
         }else{
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void updateDate(LocalDate date){
-        date_input.setText(date.toString());
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

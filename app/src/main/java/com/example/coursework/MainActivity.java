@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         bottomNavigationView.setSelectedItemId(R.id.list_trips);
-//
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -68,9 +67,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), UploadActivity.class));
                         overridePendingTransition(0,0);
                         return true;
-
                 }
-
                 return false;
             }
         });
@@ -89,17 +86,13 @@ public class MainActivity extends AppCompatActivity {
         , trip_assessment, trip_desc);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-
     }
-
-
 
     void storeDataInArrays(){
         Cursor cursor = myDB.readAllData();
         if(cursor.getCount() == 0){
             empty_imageview.setVisibility(View.VISIBLE);
             no_data.setVisibility(View.VISIBLE);
-
         } else {
             while(cursor.moveToNext()){
                 trip_id.add(cursor.getString(0));
@@ -112,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
             empty_imageview.setVisibility(View.GONE);
             no_data.setVisibility(View.GONE);
         }
-
     }
 
     @Override
